@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ehi Centre</title>
+    <link rel="stylesheet" href="./app/styles/main.css" />
+    <link rel="stylesheet" href="./app/styles/components/header.css" />
+    <link rel="stylesheet" href="./app/styles/components/footer.css" />
+    <link rel="stylesheet" href="./app/styles/slideshow.css" />
+  </head>
+  <body>
+    <div class="slideshow-background-wrapper" id="slideshowBackgroundWrapper">
+      <div class="slideshow-layer" id="slideshowLayer1"></div>
+      <div class="slideshow-layer" id="slideshowLayer2"></div>
+    </div>
+
+    <div class="root flex column align-center justify-center">
+      <header>
+        <a href="." class="logo">
+          <img src="./app/assets/images/ehi-logo.png" alt="Ehi Centre" />
+        </a>
+      </header>
+      <h1>Welcome To Ehi Centre</h1>
+      <p>
+        Empower Your Impact: Manage Your Finance, User Biodata, And Projects
+        With Ease. Your NGO's Mission, Simplified.
+      </p>
+      <a class="button button-primary" href="login.html" class="login-button"
+        >Login</a
+      >
+      <div class="gif">
+        <img src="./app/assets/images/smilling.gif" alt="Welcome" />
+      </div>
+    </div>
+    <footer id="footer" class="flex align-center justify-between"></footer>
+
+    <script type="module">
+      import { initializeFooter } from "./app/scripts/components/footer.js";
+      import { startSlideshow } from "./app/scripts/slideshow.js";
+
+      document.addEventListener("DOMContentLoaded", () => {
+        initializeFooter();
+
+        const images = [
+          './app/assets/images/bg2.png',
+          './app/assets/images/bg3.png',
+          './app/assets/images/bg4.png',
+          './app/assets/images/bgBoy.svg',
+        ];
+        // Now passing the wrapper ID and the two layer IDs
+        startSlideshow('slideshowBackgroundWrapper', 'slideshowLayer1', 'slideshowLayer2', images, 5000, 1000); // Wrapper, Layer1, Layer2, images, interval (ms), fade duration (ms)
+      });
+    </script>
+  </body>
+</html>

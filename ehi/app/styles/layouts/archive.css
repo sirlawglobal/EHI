@@ -1,0 +1,16 @@
+.justify-end{
+  margin-bottom: 1rem;
+  gap: 5px;
+}
+input[type="checkbox"]{
+  width: 1.2rem;
+  height: 1.2rem;
+  cursor: pointer;
+}
+label{
+  cursor: pointer;
+}
+#table-container{
+  max-height: 50vh;
+  overflow-y: auto;
+}

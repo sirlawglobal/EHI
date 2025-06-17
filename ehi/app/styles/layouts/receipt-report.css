@@ -1,0 +1,4 @@
+#receipt-table-container {
+  max-height: 47vh;
+  overflow-y: auto;
+}

@@ -1,0 +1,132 @@
+#sidebar {
+  position: sticky;
+  top: 5rem;
+  left: 0;
+  bottom: 0;
+  height: calc(100svh - 5rem);
+  width: 18rem;
+  min-width: 200px;
+  color: #000;
+  background-color: white;
+  padding: 1rem;
+  transform: translateX(0);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+}
+
+.sidebar-scroll-area {
+  height: calc(100svh - 9rem);
+  overflow-y: auto;
+}
+.sign-out {
+  display: none;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+@media (max-width: 767px) {
+  main{
+    width: 100%;
+  }
+  #sidebar {
+    transform: translateX(-100%);
+    position: fixed;
+    box-shadow: none;
+  }
+  #sidebar.open {
+    transform: translateX(0);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  }
+  .sign-out{
+    display: block;
+  }
+}
+
+#sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+#sidebar-overlay.visible {
+  opacity: 1;
+}
+
+body.sidebar-open .main-content {
+  margin-left: 0;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.sidebar-menu li {
+  position: relative;
+  margin-bottom: 0.1rem;
+}
+.sidebar-menu a {
+  display: block;
+  padding: 12px 20px;
+  font-weight: 600;
+  color: #000;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+}
+.sidebar-menu a:hover {
+  background-color: #e7e7e7;
+}
+
+.sidebar-menu a.active {
+  background-color: #097b48;
+  color: #fff;
+  font-weight: 600;
+}
+
+.sidebar-dropdown-toggle {
+  cursor: pointer;
+  position: relative;
+}
+.sidebar-dropdown-toggle::after {
+  content: "▼";
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
+  transition: transform 0.2s ease;
+}
+.sidebar-dropdown-toggle.active::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.sidebar-dropdown-content {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease-out;
+  margin-block: .2rem;
+}
+.sidebar-dropdown-content a {
+  padding-left: 3rem;
+  /* font-size: 1rem; */
+}
+
+.sidebar-dropdown.active-parent > .sidebar-dropdown-content {
+  max-height: fit-content;
+}
+
+.sidebar-dropdown.active-parent > .sidebar-dropdown-content {
+  max-height: 500px;
+}

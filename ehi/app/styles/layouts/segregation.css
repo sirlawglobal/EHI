@@ -1,0 +1,7 @@
+.dropdown-filter {
+  padding: 0.5rem;
+  border: 1px solid #726d6d;
+  border-radius: 0.5rem;
+  text-transform: capitalize;
+  font-size: 1rem;
+}

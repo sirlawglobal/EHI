@@ -1,0 +1,49 @@
+/* Ensure body and html take full height and overflow is handled */
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden; /* Hide scrollbars that might appear due to fixed background */
+}
+
+/* Make the root container fill the screen and allow scrolling for content */
+.root {
+  position: relative; /* Needed for z-index context */
+  z-index: 1; /* Keep content above background */
+  height: 100%; /* Take full height of the viewport */
+  width: 100%;
+  overflow-y: auto; /* Allow content to scroll if it overflows */
+  padding: 20px; /* Add some padding to content */
+  box-sizing: border-box; /* Include padding in height/width */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay for readability */
+}
+
+/* Styles for the slideshow background wrapper */
+.slideshow-background-wrapper {
+  position: fixed; /* Fixed to viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Ensure layers don't spill out */
+  z-index: 0; /* Ensure it stays in the background */
+}
+
+/* Styles for the individual fading layers */
+.slideshow-layer {
+  position: absolute; /* Positioned relative to the wrapper */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover; /* Cover the entire layer */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat;
+  opacity: 0; /* Start invisible */
+  transition: opacity 1s ease-in-out; /* Smooth fade effect */
+  will-change: opacity; /* Optimize for animation */
+}
+
+/* Class to make a layer visible */
+.slideshow-layer.active {
+  opacity: 1;
+}

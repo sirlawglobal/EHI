@@ -1,0 +1,56 @@
+header {
+  background-color: #097b48;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 5rem;
+  z-index: 1001;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & .logo,
+  & h3,
+  & div {
+    width: 30%;
+  }
+}
+
+header .logo img {
+  min-width: 80px;
+  max-width: 200px;
+}
+
+header h3 {
+  color: white;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Burger menu styles */
+.burger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  /* width: 3rem; */
+  /* height: 3rem; */
+  font-size: 2.5rem;
+  cursor: pointer;
+  background: transparent;
+  color: white;
+  border: none;
+}
+
+/* Show burger menu only on mobile */
+@media (max-width: 768px) {
+  .burger-menu {
+    display: flex;
+  }
+  .burger-menu + button {
+    display: none;
+  }
+  header h3 {
+    flex-grow: 1;
+  }
+}

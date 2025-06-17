@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | Ehi Centre</title>
+    <link rel="stylesheet" href="./app/styles/main.css" />
+    <link rel="stylesheet" href="./app/styles/components/header.css" />
+    <link rel="stylesheet" href="./app/styles/components/footer.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./app/styles/components/login-form.css" />
+  </head>
+
+  <body class="flex align-center justify-center">
+    <div class="slideshow-background-wrapper" id="slideshowBackgroundWrapper">
+      <div class="slideshow-layer" id="slideshowLayer1"></div>
+      <div class="slideshow-layer" id="slideshowLayer2"></div>
+    </div>
+
+    <header>
+      <a href="." class="logo">
+        <img src="./app/assets/images/ehi-logo.png" alt="Ehi Centre" />
+      </a>
+    </header>
+
+    <form id="login-form">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+      <div class="form-group password-group">
+        <label for="password">Password</label>
+        <div class="password">
+          <input type="password" id="password" name="password" required />
+          <span class="password-toggle-icon" id="password-toggle">
+            <i class="fas fa-eye-slash"></i>
+          </span>
+        </div>
+      </div>
+      <button type="submit" class="button button-primary">Login</button>
+      <div id="error-message" class="error-message" style="display: none; text-align: center; color: rgb(185, 0, 0); margin-top: 2rem;"></div>
+    </form>
+
+    <footer id="footer" class="flex align-center justify-between"></footer>
+
+    <script>
+      // Password toggle JavaScript
+      document.addEventListener("DOMContentLoaded", () => {
+        const passwordField = document.getElementById("password");
+        const passwordToggle = document.getElementById("password-toggle");
+
+        if (passwordField && passwordToggle) {
+          passwordToggle.addEventListener("click", () => {
+            const type =
+              passwordField.getAttribute("type") === "password"
+                ? "text"
+                : "password";
+            passwordField.setAttribute("type", type);
+            // Toggle icon
+            passwordToggle.querySelector("i").classList.toggle("fa-eye");
+            passwordToggle.querySelector("i").classList.toggle("fa-eye-slash");
+          });
+        }
+      });
+
+      // Original Login Form Submission Logic
+      const loginForm = document.getElementById("login-form");
+      const errorMessage = document.getElementById("error-message");
+      loginForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const email = document.getElementById("email").value;
+        const password = loginForm.password.value;
+
+        if (email === "user@example.com" && password === "password") {
+          // window.location.href = "/app/#/dashboard";
+          // window.location.href = "/dashboard";
+          window.location.href = "/ehi/dashboard";
+        } else {
+          errorMessage.textContent = "Invalid email or password";
+          errorMessage.style.display = "block";
+        }
+      });
+    </script>
+    <script type="module">
+      import { initializeFooter } from "./app/scripts/components/footer.js";
+
+      document.addEventListener("DOMContentLoaded", () => {
+        initializeFooter();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,75 @@
+.dashboard-summary-cards {
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.summary-card {
+  padding: 1rem;
+  border-radius: 1rem;
+  border-color: #097b48;
+  position: relative;
+  min-height: 9rem;
+  box-shadow: 4px 4px 4px 0px #00000044;
+}
+
+.card-header {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  & h3 {
+    font-weight: 500;
+  }
+}
+
+.summary-card:nth-child(2),
+.summary-card:nth-child(4),
+.summary-card:nth-child(5),
+.summary-card:nth-child(6) {
+  & .card-body .card-value {
+    text-align: center;
+    font-weight: 500;
+    font-size: 2.5rem;
+    & small {
+      font-size: 0.8rem;
+      font-weight: 400;
+    }
+  }
+}
+
+p.card-text {
+  display: flex;
+  /* width: 90%; */
+  max-width: 280px;
+  align-items: center;
+  justify-content: space-between;
+  & .card-value{
+    width: 50%;
+    text-align: left;
+  }
+}
+
+.dashboard-chart-section .chart-container {
+  position: relative;
+  width: 100%;
+  height: 20rem;
+}
+
+.dashboard-chart-section .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.chart-controls {
+  display: flex;
+  justify-content: end;
+  gap: 1rem;
+  align-items: center;
+  & select {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 0.3rem;
+    font-size: 0.9rem;
+    color: #333;
+  }
+}

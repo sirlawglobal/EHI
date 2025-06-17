@@ -1,0 +1,14 @@
+# Enable mod_rewrite
+RewriteEngine On
+RewriteBase /
+
+# Prevent rewrite loops and handle directory/file existence
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Serve /app/* paths directly (first Vercel rewrite rule)
+RewriteRule ^app/.*$ - [L]
+
+# Rewrite all other paths (not starting with /app/) to /app/index.html (second Vercel rewrite rule)
+RewriteRule ^((?!app/).*)$ app/index.html [L,NC]

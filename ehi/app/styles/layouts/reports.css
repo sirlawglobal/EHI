@@ -1,0 +1,15 @@
+#donor-table-container,
+#beneficiary-table-container {
+  max-height: 47vh;
+  overflow-y: auto;
+}
+.span-2 {
+  grid-column: span 2;
+}
+
+@media screen and (max-width: 549px) {
+  .span-2 {
+    grid-column: span 1;
+  }
+  
+}

@@ -1,0 +1,42 @@
+.date {
+  padding: 0.4rem 1rem;
+  border: 1px solid #097b48;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.9rem;
+}
+input[type="date"] {
+  border: none;
+  font-size: 0.9rem;
+}
+#donor-table-container {
+  max-height: 47vh;
+  overflow-y: auto;
+}
+.beneficiary-analytic-chart {
+  width: 100%;
+  /* max-height: 20rem; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  justify-content: center;
+  p{
+    text-align: center;
+  }
+}
+div#itemsReceivedChartContainer {
+  width: 100%;
+}
+canvas#itemsReceivedChart {
+  width: 100% !important;
+  height: 13rem;
+}
+div#stockVsDisbursedChartContainer {
+  width: 100%;
+}
+canvas#stockVsDisbursedChart {
+  width: 100% !important;
+  height: 25rem;
+}

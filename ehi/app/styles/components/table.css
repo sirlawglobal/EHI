@@ -1,0 +1,136 @@
+div[id$="table-container"] {
+  min-height: 35vh;
+  max-height: 57vh;
+  overflow-y: auto;
+  & thead {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 1;
+  }
+}
+
+/* increase max table height on longer screens */
+@media (min-height: 800px) {
+  div[id$="table-container"] {
+  min-height: 50vh;
+    max-height: 85vh;
+  }
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.data-table th,
+.data-table td {
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-size: 0.9rem;
+  position: relative;
+  text-transform: capitalize;
+}
+.data-table th {
+  padding: 0.5rem 1rem;
+  background-color: #097b48;
+  font-weight: 600;
+  color: white;
+  white-space: nowrap;
+}
+.data-table td {
+  padding: 0.2rem 1rem;
+  border-width: 5px;
+}
+.data-table td img {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+}
+.data-table td button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.data-table .email {
+  text-transform: lowercase;
+}
+.clamp {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 6rem;
+}
+.claimed {
+  color: green;
+}
+.nested-table-dropdown {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  z-index: 10;
+  padding: 1rem;
+  border: 1px solid #cccccc;
+}
+
+.nested-table-dropdown table,
+.nested-table-dropdown table th,
+.nested-table-dropdown table td {
+  border: 1px solid #cccccc;
+}
+
+.nested-table-dropdown table th {
+  background-color: white;
+  color: black;
+  font-weight: 400;
+}
+
+.nested-table-dropdown .close {
+  background-color: red;
+  color: white;
+  text-align: center;
+  margin: 1rem auto 0;
+  display: block;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  &:hover {
+    background-color: rgb(222, 0, 0);
+  }
+}
+
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2em;
+}
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  min-width: 12rem;
+}
+.dropdown-menu li {
+  list-style: none;
+}
+.dropdown-menu li a {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.5rem 1rem;
+  color: #333;
+  text-decoration: none;
+}
+.dropdown-menu li a:hover {
+  background: #f8f9fa;
+}

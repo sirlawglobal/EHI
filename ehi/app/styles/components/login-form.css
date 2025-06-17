@@ -1,0 +1,73 @@
+body {
+  background: url(../../assets/images/login-background.png),
+    linear-gradient(135deg, #0aeb8580, #d9d9d9);
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+form {
+  margin: auto;
+  background-color: #ffffff69;
+  padding: 4vw 8vw;
+  width: 55%;
+  min-width: 280px;
+  background: #ffffff69;
+  /* height: 400px; */
+  /* display: flex; */
+  /* align-items: center; */
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  flex-direction: column;
+  display: flex;
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  &::after {
+    content: '*';
+    color: red;
+    margin-left: 0.2rem;
+  }
+}
+.form-group input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.3rem;
+}
+
+.password {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.3rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  overflow: hidden;
+}
+
+.password input {
+  border-radius: 0;
+  border: none;
+  padding: 0;
+  width: 100%;
+}
+.password .password-toggle-icon {
+  border-radius: 0.3rem;
+  cursor: pointer;
+  display: inline-block;
+}
+
+button {
+  margin: auto;
+  width: 10rem;
+  font-weight: 600;
+}

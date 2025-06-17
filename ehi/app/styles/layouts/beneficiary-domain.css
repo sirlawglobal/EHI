@@ -1,0 +1,21 @@
+.date {
+  padding: 0.4rem 1rem;
+  border: 1px solid #097b48;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.9rem;
+}
+input[type="date"] {
+  border: none;
+  font-size: 0.9rem;
+}
+.beneficiary-analytic-chart {
+  width: 100%;
+  /* max-height: 20rem; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

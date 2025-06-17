@@ -1,0 +1,81 @@
+<section class="dashboard-content">
+  <div class="dashboard-summary-cards grid">
+    <div class="card summary-card">
+      <div class="card-header">
+        <h3>Current Total No Of Beneficiaries</h3>
+        <i class="icon-beneficiary"></i>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Users Registered: <span class="card-value" id="registeredUsers">74</span></p>
+        <p class="card-text">Users Enrolled: <span class="card-value" id="enrolledUsers">60</span></p>
+      </div>
+    </div>
+
+    <div class="card summary-card">
+      <div class="card-header">
+        <h3>Current Total No Of Donors</h3>
+        <i class="icon-donor"></i>
+      </div>
+      <div class="card-body">
+        <p class="card-value">33</p>
+      </div>
+    </div>
+
+    <div class="card summary-card">
+      <div class="card-header">
+        <h3>Current Total No Of Food Items</h3>
+        <i class="icon-food"></i>
+      </div>
+      <div class="card-body">
+        <p class="card-text">
+          Rice: <span class="card-value">1,691<small>kg</small> <small>(33 Bgs)</small></span>
+        </p>
+        <p class="card-text">Beans: <span class="card-value">10<small>kg</small></span></p>
+        <p class="card-text">Tomato Paste: <span class="card-value">5 <small>rolls</small></span></p>
+      </div>
+    </div>
+
+    <div class="card summary-card">
+      <div class="card-header">
+        <h3>Current Total No Of Clothings</h3>
+        <i class="icon-clothing"></i>
+      </div>
+      <div class="card-body">
+        <p class="card-value">50 <small>(pcs)</small></p>
+      </div>
+    </div>
+
+    <div class="card summary-card">
+      <div class="card-header">
+        <h3>Total Amount Of Cash Raised</h3>
+        <i class="icon-fund"></i>
+      </div>
+      <div class="card-body">
+        <p class="card-value">0</p>
+      </div>
+    </div>
+
+    <div class="card summary-card">
+      <div class="card-header">
+        <h3>Current Total No Of Medications</h3>
+        <i class="icon-medication"></i>
+      </div>
+      <div class="card-body">
+        <p class="card-value">0 <small>(pcks)</small></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="dashboard-chart-section card">
+    <div class="card-header">
+        <h3>Stock Levels by Month</h3>
+        <div class="chart-controls">
+            <label for="yearFilter">Select Year:</label>
+            <select id="yearFilter"></select>
+        </div>
+    </div>
+    <div class="card-body chart-container">
+        <canvas id="keyIndicatorChart"></canvas>
+    </div>
+</div>
+</section>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base href="/ehi/app/" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ehi Centre</title>
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="./styles/components/header.css" />
+    <link rel="stylesheet" href="./styles/components/footer.css" />
+    <link rel="stylesheet" href="./styles/components/sidebar.css" />
+    <link rel="stylesheet" href="./styles/components/table.css" />
+    <link rel="stylesheet" href="./styles/layouts/reports.css" />
+    <link rel="stylesheet" href="./styles/components/pagination.css" />
+    <link rel="stylesheet" href="./styles/components/modal.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/3.0.1/jspdf.umd.min.js" integrity="sha512-ad3j5/L4h648YM/KObaUfjCsZRBP9sAOmpjaT2BDx6u9aBrKFp7SbeHykruy83rxfmG42+5QqeL/ngcojglbJw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  </head>
+  <body>
+    <div class="app-container">
+      <header id="header" class="flex align-center justify-between">
+        <!-- <a class="logo">
+          <img src="./assets/images/ehi-logo.png" alt="Ehi Centre" />
+        </a>
+        <h3 class="title">Dashboard</h3>
+
+        <div class="flex align-center justify-end">
+          <button class="button">Sign Out</button>
+          <button id="sidebar-toggle">☰</button> 
+        </div> -->
+      </header>
+      <div class="main-content flex">
+        <aside id="sidebar"></aside>
+        <main id="main-content"></main>
+      </div>
+
+      <footer id="footer" class="flex align-center justify-between"></footer>
+    </div>
+    <div id="app-modal-overlay" class="app-modal-overlay">
+      <div
+        id="app-modal-content-wrapper"
+        class="app-modal-content-wrapper"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="app-modal-title"
+      >
+        <div class="app-modal-header">
+          <h3 id="app-modal-title" class="app-modal-title"></h3>
+          <button
+            id="app-modal-close-button"
+            class="app-modal-close-button"
+            aria-label="Close modal"
+          >
+            &times;
+          </button>
+        </div>
+        <div id="app-modal-body" class="app-modal-body"></div>
+        <div id="app-modal-footer" class="app-modal-footer"></div>
+      </div>
+    </div>
+    <div id="sidebar-overlay"></div>
+    <script type="module" src="./scripts/main.js"></script>
+    <script type="module" src="./scripts/router.js"></script>
+  </body>
+</html>

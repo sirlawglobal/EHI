@@ -1,0 +1,9 @@
+#programme-table-container{
+  max-height: 47vh;
+  overflow-y: auto;
+}
+div#programmeChartContainer {
+  width: 70%;
+  margin: auto;
+  margin-top: 1rem;
+}
