@@ -4,36 +4,36 @@ const contentArea = document.getElementById("main-content");
 let currentStyle; // Stores the currently loaded stylesheet link element
 let globalListeners = []; // Track global event listeners
 
-const APP_ROOT_PATH = "/app";
+const APP_ROOT_PATH = "/ehi/app";
 
 const routeModules = {
-  "/dashboard": () => import("./modules/dashboard.js"),
-  "/users": () => import("./modules/userData.js"),
-  "/donors": () => import("./modules/donorData.js"),
-  "/programmes": () => import("./modules/programmeData.js"),
-  "/disbursement": () => import("./modules/disbursement.js"),
-  "/finance/balance-sheet": () => import("./modules/finance.js"),
-  "/finance/assets": () => import("./modules/finance.js"),
-  "/finance/liabilities": () => import("./modules/finance.js"),
-  "/finance/receipt": () => import("./modules/finance.js"),
-  "/finance/expenses": () => import("./modules/finance.js"),
-  "/reports/segregation": () => import("./modules/report.js"),
-  "/reports/beneficiary-domain": () => import("./modules/report.js"),
-  "/reports/donor-domain": () => import("./modules/report.js"),
-  "/reports/programme-domain": () => import("./modules/programmeData.js"),
-  "/reports/receipt-report": () => import("./modules/finance.js"),
-  "/reports/expenses-report": () => import("./modules/finance.js"),
-  "/archive": () => import("./modules/archive.js"),
-  "/admin": () => import("./modules/admin.js"),
+  "/ehi/dashboard": () => import("./modules/dashboard.js"),
+  "/ehi/users": () => import("./modules/userData.js"),
+  "/ehi/donors": () => import("./modules/donorData.js"),
+  "/ehi/programmes": () => import("./modules/programmeData.js"),
+  "/ehi/disbursement": () => import("./modules/disbursement.js"),
+  "/ehi/finance/balance-sheet": () => import("./modules/finance.js"),
+  "/ehi/finance/assets": () => import("./modules/finance.js"),
+  "/ehi/finance/liabilities": () => import("./modules/finance.js"),
+  "/ehi/finance/receipt": () => import("./modules/finance.js"),
+  "/ehi/finance/expenses": () => import("./modules/finance.js"),
+  "/ehi/reports/segregation": () => import("./modules/report.js"),
+  "/ehi/reports/beneficiary-domain": () => import("./modules/report.js"),
+  "/ehi/reports/donor-domain": () => import("./modules/report.js"),
+  "/ehi/reports/programme-domain": () => import("./modules/programmeData.js"),
+  "/ehi/reports/receipt-report": () => import("./modules/finance.js"),
+  "/ehi/reports/expenses-report": () => import("./modules/finance.js"),
+  "/ehi/archive": () => import("./modules/archive.js"),
+  "/ehi/admin": () => import("./modules/admin.js"),
 };
 
 const routesWithoutCSS = [
-  "/programmes",
-  "/disbursement",
-  "/finance/assets",
-  "/finance/liabilities",
-  "/finance/receipt",
-  "/finance/expenses",
+  "/ehi/programmes",
+  "/ehi/disbursement",
+  "/ehi/finance/assets",
+  "/ehi/finance/liabilities",
+  "/ehi/finance/receipt",
+  "/ehi/finance/expenses",
 ];
 
 // Helper function to track and add global listeners
@@ -69,11 +69,11 @@ function loadStylesheet(href) {
 }
 
 function loadAppContent(route) {
-  const templatePath = `${APP_ROOT_PATH}/templates${route}.html`;
-  // const templatePath = `${APP_ROOT_PATH}/templates${route.replace(
-  //   /^\/ehi/,
-  //   ""
-  // )}.html`;
+  // const templatePath = `${APP_ROOT_PATH}/templates${route}.html`;
+  const templatePath = `${APP_ROOT_PATH}/templates${route.replace(
+    /^\/ehi/,
+    ""
+  )}.html`;
 
   // Cleanup: Reset main-content and remove global listeners
   contentArea.innerHTML = ""; // Clear DOM to remove all listeners
@@ -85,7 +85,6 @@ function loadAppContent(route) {
     const newModal = modal.cloneNode(false); // Shallow clone to remove listeners
     modal.parentNode.replaceChild(newModal, modal);
   }
-  
 
   fetch(templatePath)
     .then((response) => {
@@ -117,26 +116,29 @@ function loadAppContent(route) {
             .then((module) => {
               let initFunctionName;
               switch (route) {
-                case "/finance/balance-sheet":
-                case "/finance/assets":
-                case "/finance/liabilities":
-                case "/finance/receipt":
-                case "/finance/expenses":
-                case "/reports/receipt-report":
-                case "/reports/expenses-report":
+                case "/ehi/finance/balance-sheet":
+                case "/ehi/finance/assets":
+                case "/ehi/finance/liabilities":
+                case "/ehi/finance/receipt":
+                case "/ehi/finance/expenses":
+                case "/ehi/reports/receipt-report":
+                case "/ehi/reports/expenses-report":
                   initFunctionName = "initFinance";
                   break;
-                case "/reports/segregation":
-                case "/reports/beneficiary-domain":
-                case "/reports/donor-domain":
+                case "/ehi/reports/segregation":
+                case "/ehi/reports/beneficiary-domain":
+                case "/ehi/reports/donor-domain":
                   initFunctionName = "initReport";
                   break;
-                case "/reports/programme-domain":
+                case "/ehi/reports/programme-domain":
                   initFunctionName = "initProgrammes";
                   break;
                 default:
+                  const routeName = route
+                    .replace(/^\/ehi\//, "")
+                    .replace(/-([a-z])/g, (m, l) => l.toUpperCase());
                   initFunctionName = `init${
-                    route.charAt(1).toUpperCase() + route.slice(2)
+                    routeName.charAt(0).toUpperCase() + routeName.slice(1)
                   }`;
                   break;
               }
@@ -176,21 +178,21 @@ function loadAppContent(route) {
             .then((module) => {
               let initFunctionName;
               switch (route) {
-                case "/finance/balance-sheet":
-                case "/finance/assets":
-                case "/finance/liabilities":
-                case "/finance/receipt":
-                case "/finance/expenses":
-                case "/reports/receipt-report":
-                case "/reports/expenses-report":
+                case "/ehi/finance/balance-sheet":
+                case "/ehi/finance/assets":
+                case "/ehi/finance/liabilities":
+                case "/ehi/finance/receipt":
+                case "/ehi/finance/expenses":
+                case "/ehi/reports/receipt-report":
+                case "/ehi/reports/expenses-report":
                   initFunctionName = "initFinance";
                   break;
-                case "/reports/segregation":
-                case "/reports/beneficiary-domain":
-                case "/reports/donor-domain":
+                case "/ehi/reports/segregation":
+                case "/ehi/reports/beneficiary-domain":
+                case "/ehi/reports/donor-domain":
                   initFunctionName = "initReport";
                   break;
-                case "/reports/programme-domain":
+                case "/ehi/reports/programme-domain":
                   initFunctionName = "initProgrammes";
                   break;
                 default:
@@ -227,8 +229,8 @@ function loadAppContent(route) {
     .catch((error) => {
       console.error(`Router: Error loading content for route ${route}:`, error);
       contentArea.innerHTML = `<p>Error: Could not load content for "${route}". Please try again or check the URL.</p>`;
-      window.history.replaceState(null, "", "/dashboard");
-      loadAppContent("/dashboard");
+      window.history.replaceState(null, "", "/ehi/dashboard");
+      loadAppContent("/ehi/dashboard");
     });
 }
 
@@ -237,13 +239,13 @@ function handleInitialLoad() {
 
   if (
     currentPath === "/" ||
-    // currentPath === "/ehi" ||
-    // currentPath === "/ehi/" ||
-    currentPath === "/app" ||
-    currentPath === "/app/"
+    currentPath === "/ehi" ||
+    currentPath === "/ehi/" ||
+    currentPath === "/ehi/app" ||
+    currentPath === "/ehi/app/"
   ) {
-    window.history.replaceState(null, "", "/dashboard");
-    loadAppContent("/dashboard");
+    window.history.replaceState(null, "", "/ehi/dashboard");
+    loadAppContent("/ehi/dashboard");
   } else {
     loadAppContent(currentPath);
   }
@@ -261,7 +263,7 @@ document.addEventListener("click", (event) => {
   if (
     event.target.tagName === "A" &&
     event.target.getAttribute("href") &&
-    event.target.getAttribute("href").startsWith("/")
+    event.target.getAttribute("href").startsWith("/ehi/")
   ) {
     event.preventDefault();
     const newUrl = event.target.getAttribute("href");
@@ -276,7 +278,7 @@ globalListeners.push({
     if (
       event.target.tagName === "A" &&
       event.target.getAttribute("href") &&
-      event.target.getAttribute("href").startsWith("/")
+      event.target.getAttribute("href").startsWith("/ehi/")
     ) {
       event.preventDefault();
       const newUrl = event.target.getAttribute("href");
